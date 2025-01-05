@@ -59,8 +59,26 @@ ElemType peek(LinkedStack *pStack) {
 	return pStack->top->data;
 }
 
+void print(LinkedStack *pStack) {
+	if (!isEmpty(pStack)) {
+		Node* node = pStack->top;
+		while (node) {
+			printf("%d->", node->data);
+			node = node->next;
+		}
+		printf("\n");
+	}
+}
+
 int main() {
 	LinkedStack* linkedStack = (LinkedStack*)malloc(sizeof(LinkedStack));
 	initStack(linkedStack);
+	_Bool hello = false;
+	push(linkedStack, 10);
+	push(linkedStack, 20);
+	print(linkedStack);
+	ElemType data = pop(linkedStack);
+	printf("%d\n", data);
+	print(linkedStack);
 	return 0;
 }
